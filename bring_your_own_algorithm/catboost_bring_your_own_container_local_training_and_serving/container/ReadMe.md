@@ -42,14 +42,14 @@ The subdirectory local-test contains scripts and sample data for testing the bui
 * __serve-local.sh__: Instantiate the container configured for serving.
 * __predict.sh__: Run predictions against a locally instantiated server.
 * __test-dir__: The directory that gets mounted into the container with test data mounted in all the places that match the container schema.
-* __payload.csv__: Sample data for used by predict.sh for testing the server.
+* The test.csv data created during the download dataset step can be used by predict.sh for testing the server.
 
 #### The directory tree mounted into the container
 
 The tree under test-dir is mounted into the container and mimics the directory structure that SageMaker would create for the running container during training or hosting.
 
 * __input/config/hyperparameters.json__: The hyperparameters for the training job.
-* __input/data/training/leaf_train.csv__: The training data.
+* __input/data/training/california_train.csv__: The training data.
 * __model__: The directory where the algorithm writes the model file.
 * __output__: The directory where the algorithm can write its success or failure file.
 
