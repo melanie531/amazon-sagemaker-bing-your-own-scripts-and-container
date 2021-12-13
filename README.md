@@ -4,3 +4,4 @@ This git repo was developed based on the git repository [Amazon SageMaker Local 
 
 In this git repo, we added examples of running the SageMaker Training and Hosting jobs on SageMaker Notebook Instances using **local** mode with some commonly used frameworks, e.g. Scikit Learn, XGBoost, and etc.
 
+For more details, please refer to the original git repository or read the Machine Learning Blog post at: https://aws.amazon.com/blogs/machine-learning/use-the-amazon-sagemaker-local-mode-to-train-on-your-notebook-instance/
