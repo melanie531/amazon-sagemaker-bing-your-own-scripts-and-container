@@ -19,6 +19,7 @@
 *.rar
 *.tar
 *.zip
+*.dump
 
 # Logs and databases #
 ######################
@@ -40,5 +41,6 @@ Thumbs.db
 ######################
 *.csv
 **/data/
+**/model/
 **/catboost_info/
 **/.ipynb_checkpoints/
