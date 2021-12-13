@@ -41,3 +41,4 @@ Thumbs.db
 *.csv
 **/data/
 **/catboost_info/
+**/.ipynb_checkpoints/
