@@ -39,7 +39,6 @@ Thumbs.db
 
 # data folder/files #
 ######################
-*.csv
 **/data/
 **/model/
 **/catboost_info/
