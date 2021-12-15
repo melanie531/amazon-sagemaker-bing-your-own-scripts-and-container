@@ -31,7 +31,8 @@ if __name__ == "__main__":
     parser.add_argument("--output-data-dir", type=str, default=os.environ["SM_OUTPUT_DATA_DIR"])
     parser.add_argument("--model-dir", type=str, default=os.environ["SM_MODEL_DIR"])
     parser.add_argument("--train", type=str, default=os.environ["SM_CHANNEL_TRAIN"])
-
+    parser.add_argument("--validation", type=str, default=os.environ["SM_CHANNEL_VALIDATION"])
+    
     args = parser.parse_args()
     print("Got Args: {}".format(args))
 
@@ -49,7 +50,7 @@ if __name__ == "__main__":
     raw_data = [pd.read_csv(file, header=None, engine="python") for file in train_input_files]
     train_df = pd.concat(raw_data)
 
-    validation_input_files = [os.path.join(args.train, file) for file in os.listdir(args.train)]
+    validation_input_files = [os.path.join(args.validation, file) for file in os.listdir(args.validation)]
     if len(validation_input_files) == 0:
         raise ValueError(
             (
@@ -86,6 +87,7 @@ if __name__ == "__main__":
     path = os.path.join(args.model_dir, model_file_name)
     print('saving model file to {}'.format(path))
     model.save_model(path)
+
 
     print("Training Completed")
 
