@@ -25,16 +25,16 @@ import joblib
 import json
 import logging
 import sys
-<<<<<<< HEAD
+
 import pickle
 from my_custom_library import cross_validation
-=======
+
 import csv
 import pickle
 from my_custom_library import cross_validation
 from sagemaker_containers import _content_types
 import xgboost as xgb
->>>>>>> 953cbe0d56ce55b6e306e3bf1d8423f05388e3a4
+
 
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.StreamHandler(sys.stdout))
@@ -42,10 +42,7 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 model_file_name = 'catboost-regressor-model.dump'
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 953cbe0d56ce55b6e306e3bf1d8423f05388e3a4
 if __name__ == "__main__":
     print("Training Started")
     parser = argparse.ArgumentParser()
@@ -144,15 +141,14 @@ if __name__ == "__main__":
     print("Training Completed")
 
 
-<<<<<<< HEAD
-=======
+
 def input_fn(input_data, content_type):
     dtype=None
     payload = StringIO(input_data)
     
     return np.genfromtxt(payload, dtype=dtype, delimiter=",")
 
->>>>>>> 953cbe0d56ce55b6e306e3bf1d8423f05388e3a4
+
 def model_fn(model_dir):
     """Deserialized and return fitted model
 
@@ -169,18 +165,18 @@ def model_fn(model_dir):
 
 
 def predict_fn(input_data, model):
-<<<<<<< HEAD
+
     print('Invoked with {} records'.format(input_data.shape[0]))
 
-    predictions_catb = model[0].predict(input_data)
+#     predictions_catb = model[0].predict(input_data)
     
-    decoded_payload = input_data.strip().decode("utf-8")
-    dtest = encoder.csv_to_dmatrix(decoded_payload, dtype=np.float)
-    predictions_xgb = model[1].predict(dtest,
-                                          ntree_limit=getattr(model, "best_ntree_limit", 0),
-                                          validate_features=False)
-    return [predictions_catb, predictions_xgb]
-=======
+#     decoded_payload = input_data.strip().decode("utf-8")
+#     dtest = encoder.csv_to_dmatrix(decoded_payload, dtype=np.float)
+#     predictions_xgb = model[1].predict(dtest,
+#                                           ntree_limit=getattr(model, "best_ntree_limit", 0),
+#                                           validate_features=False)
+#     return [predictions_catb, predictions_xgb]
+
 #     print('Invoked with {} records'.format(input_data.shape[0]))
 #     np_array = decoder.decode(input_data, content_type)
 #     reader = csv.reader(input_data, delimiter=',')
@@ -205,6 +201,5 @@ def predict_fn(input_data, model):
     
     
     return np.mean(np.array([predictions_catb, predictions_xgb]), axis=0)
->>>>>>> 953cbe0d56ce55b6e306e3bf1d8423f05388e3a4
 
 
